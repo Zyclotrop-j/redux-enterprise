@@ -1,3 +1,4 @@
 import { Connect } from "react-redux";
+import { ConnectArguments } from "./index";
 
-export const connect: Connect;
+export default (ConnectArguments) => Connect;
