@@ -22,7 +22,7 @@ const MixedTemplate = ({ count, ...args }) => <Provider>
   <h2>Scope 5</h2>
   <DefaultCountdown {...args} scope="scope5" />
   <h2>Scope 'index + 1'</h2>
-  {Array.from({length: Math.max(1, count)}).map((_, idx) => <><p>Scope {idx + 1}</p><DefaultCountdown {...args} scope={`scope${idx + 1}`} /></>)}
+  {Array.from({length: Math.max(1, count)}).map((_, idx) => <div key={`q${idx+1}`}><p>Scope {idx + 1}</p><DefaultCountdown {...args} scope={`scope${idx + 1}`} /></div>)}
 </Provider>;
 
 export const UnconnectedCountdown = Template.bind({});

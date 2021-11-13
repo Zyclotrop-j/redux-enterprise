@@ -19,7 +19,7 @@ export const ConnectedMillitSecondDisplay = connect(bindSelectors(stateSlice => 
 })))(MillitSecondDisplay);
 
 MillitSecondDisplay.propTypes = {
-  milliseconds: PropTypes.number.isRequired,
+  milliseconds: PropTypes.string.isRequired,
 };
 
 MillitSecondDisplay.defaultProps = {};
@@ -55,10 +55,10 @@ export default connect(bindSelectors(stateSlice => ({
 }))(Countdown);
 
 Countdown.propTypes = {
-  hours: PropTypes.number.isRequired,
-  minutes: PropTypes.number.isRequired,
-  seconds: PropTypes.number.isRequired,
-  milliseconds: PropTypes.number,
+  hours: PropTypes.string.isRequired,
+  minutes: PropTypes.string.isRequired,
+  seconds: PropTypes.string.isRequired,
+  milliseconds: PropTypes.string,
   tick: PropTypes.func.isRequired,
   start: PropTypes.func.isRequired,
   stop: PropTypes.func.isRequired,

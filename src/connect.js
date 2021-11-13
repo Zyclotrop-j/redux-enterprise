@@ -22,7 +22,7 @@ export default ({
             const ConnectedComponent = connectCall(Component);
             return props => {
                 const scope = (options?.getScope ?? defaultGetScope)(props, mapStateToProps.defaultScope);
-                const context = Object.fromEntries(Object.entries(options?.contextHooks ?? contextHooks).map(([k, v]) => [k, v()])); // todo: run hooks
+                const context = Object.fromEntries(Object.entries(options?.contextHooks ?? contextHooks).map(([k, v]) => [k, v()]));
                 const dependendContexts = memo(() => scope.match(atRegex).map(i => i.substring(1)), [scope]);
                 const previousContexts = Object.fromEntries(Object.keys(context).map(key => [key, usePrevious(context[key])]));
                 const isSame = Object.keys(context).every((key) => context[key] === previousContexts[key]);

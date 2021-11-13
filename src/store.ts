@@ -84,7 +84,10 @@ export default ({
                 let handled = false;
                 let newState = state;
                 for(const { default: reducer } of reducers) {
-                    if(reducer.handlesActions?.includes(action.type)) {
+                    if(action.type.startsWith('@@redux')) {
+                        newState = reducer(newState, action);
+                        handled = true;
+                    } else if(reducer.handlesActions?.includes(action.type)) {
                         if(handled) {
                             console.warn(`Another reducer matched the action '${action.type}' - there must be only one reducer per action! The second reducer will not be invoked!`)
                             continue;
